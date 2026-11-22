@@ -117,6 +117,22 @@ main{margin:0!important;width:100%!important;max-width:none!important;padding:17
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
+
+/* Correctif explicite : couverture à gauche, informations à droite */
+.library-row{display:grid!important;grid-template-columns:82px minmax(0,1fr) auto!important;grid-template-rows:auto!important;align-items:start!important}
+.library-thumb{grid-column:1!important;grid-row:1!important}
+.library-info{grid-column:2!important;grid-row:1!important;width:100%;min-width:0}
+.library-rating{grid-column:3!important;grid-row:1!important}
+@media(max-width:650px){
+ .library-row{grid-template-columns:72px minmax(0,1fr)!important;column-gap:13px!important;align-items:start!important}
+ .library-thumb{grid-column:1!important;grid-row:1!important;width:72px;height:104px}
+ .library-info{grid-column:2!important;grid-row:1!important}
+ .library-rating{grid-column:2!important;grid-row:2!important;justify-self:start!important;padding-top:5px!important}
+ .library-title{overflow-wrap:break-word;word-break:normal}
+ .library-author{overflow-wrap:break-word;word-break:normal}
+ .library-progressline{display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap}
+ .library-progressline span:last-child{text-align:right}
+}
 /* Bibliothèque en lignes — pensée d'abord pour iPhone */
 .library-list{display:flex;flex-direction:column;gap:11px}
 .library-row{display:grid;grid-template-columns:66px minmax(0,1fr) auto;gap:15px;align-items:center;padding:13px 15px;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
